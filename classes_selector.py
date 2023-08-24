@@ -15,14 +15,13 @@ def synset_selector(filename: str='./LOC_synset_mapping.txt', debug:bool=False) 
                 print(f"{lines[int(id)][:9]}\t{lines[int(id)][9:]}")
             print()
         return classes.tolist()
-        
+
 def class_selector(filename: str='./LOC_synset_mapping.txt', debug:bool=False) -> List[int]:
     with open(filename) as f:
         lines = [line.strip() for line in f.readlines()]
-        # classes = np.random.randint(low=0, high=1000, size=(15,))
         classes = []
         while len(classes) < 15:
-            idx = random.randint(0, 999) 
+            idx = random.randint(0, 999)
             mapping = lines[idx]
             if ',' in mapping:
                 continue
